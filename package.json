@@ -1,0 +1,25 @@
+{
+  "name": "js-debutant",
+  "version": "1.0.0",
+  "description": "Dans un premier temps nous allons simplement créer un\r script JavaScript qui décrira un objet qui nous servira à décrire\r un Contact et un second ContactService qui proposera une\r API pour manipuler une liste de contacts.\r Nous utiliserons la syntaxe ES2015 pour profiter des dernières\r évolutions du JavaScript (classe, constructor...).",
+  "main": "Contact.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/bezedache29/js-debutant.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/bezedache29/js-debutant/issues"
+  },
+  "homepage": "https://github.com/bezedache29/js-debutant#readme",
+  "dependencies": {
+    "chalk": "^4.1.2",
+    "commander": "^8.3.0",
+    "lodash": "^4.17.21"
+  }
+}

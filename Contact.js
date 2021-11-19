@@ -1,4 +1,9 @@
 const data = require('./contacts.json')
+const _ = require('lodash')
+const chalk = require('chalk')
+
+const { program } = require('commander');
+program.version('0.0.1');
 
 class Contact {
 
@@ -10,8 +15,12 @@ class Contact {
     this.phone = contact.phone
   }
   
-  toString = () => {
-    return this.lastName.toUpperCase() + ' ' + this.firstName
+  toString = (color = false) => {
+    if (color) {
+      return chalk.blue(this.lastName.toUpperCase()) + ' ' + chalk.red(this.firstName)
+    } else {
+      return this.lastName.toUpperCase() + ' ' + this.firstName
+    }
   }
 }
 
@@ -29,9 +38,9 @@ class ContactService {
     return this.allContacts ? this.allContacts : []
   }
 
-  print = () => {
+  print = (color = false) => {
     this.get().map(contact => {
-      console.log(contact.toString())
+      color ? console.log(contact.toString(color)) : console.log(contact.toString())
     })
   }
 
@@ -39,4 +48,18 @@ class ContactService {
 
 const myContact = new ContactService(data)
 myContact.get()
-myContact.print()
+
+
+program.option('-h, --help', 'listContacts')
+program.option('-c, --color', 'listContacts')
+
+program.parse(process.argv)
+
+const options = program.opts()
+if (options.help) {
+  myContact.print()
+} else if (options.color) {
+  myContact.print(true)
+} else {
+  myContact.print()
+}
